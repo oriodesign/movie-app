@@ -1,15 +1,22 @@
 import { Observable } from 'rxjs';
-import axios, {AxiosInstance} from 'axios';
+import {inject, injectable} from 'inversify';
+import "reflect-metadata";
+import {AxiosInstance, AxiosRequestConfig} from 'axios';
 
+@injectable()
 export class HttpService {
 
-    constructor(
-        private client: AxiosInstance
-    ) {}
+    private client: AxiosInstance;
 
-    public get(uri: string) {
+    constructor(
+        @inject("Factory<AxiosInstance>") private factory: () => AxiosInstance
+    ) {
+        this.client = factory();
+    }
+
+    public get(url: string, config: AxiosRequestConfig) {
         return Observable.create((observer: any) => {
-            this.client.get(uri)
+            this.client.get(url, config)
                 .then((r: any) => {
                     observer.next(r);
                     observer.complete();

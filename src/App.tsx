@@ -1,9 +1,16 @@
 import * as React from "react";
-export interface InterfaceAppProps { testMessage: string; }
+import {SearchBox} from './component/search-box';
+import {Store} from './store/store';
+export interface InterfaceAppProps { store: Store; }
 
 class App extends React.Component<InterfaceAppProps, undefined> {
     public render() {
-        return (<div>{this.props.testMessage}</div>);
+        return (
+            <div>
+                <h1>Movie App</h1>
+                <SearchBox store={this.props.store} />
+            </div>
+        );
     }
 }
 export default App;
