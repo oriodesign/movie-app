@@ -16,7 +16,7 @@ describe('Reducer', () => {
 
     it('should reduce request end', () => {
         const reducer = new Reducer();
-        const result = reducer.reduce([new SearchEnd({}), {}]);
+        const result = reducer.reduce([new SearchEnd({} as any), {}]);
         expect(result).toEqual({loading: false});
     });
 

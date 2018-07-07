@@ -1,3 +1,5 @@
+import {SearchMultiResponse} from '../service/movie-service';
+
 export interface Action {
     type: string;
     payload: any;
@@ -27,7 +29,7 @@ export class SearchStart implements Action {
 export class SearchEnd implements Action {
     public type = ACTION_TYPE.SEARCH_END;
     constructor(
-        public payload: any
+        public payload: SearchMultiResponse
     ) {}
 }
 
