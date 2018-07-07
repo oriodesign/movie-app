@@ -16,6 +16,8 @@
     "@types/enzyme": "^3.1.11",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^23.1.4",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.3.0",
@@ -27,17 +29,17 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@types/react": "^16.4.6",
-    "@types/react-dom": "^16.0.6",
+    "axios": "^0.18.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "rxjs": "^6.2.1"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/enzyme.ts",
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "test\\.(tsx|ts|js)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
