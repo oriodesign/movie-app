@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import {injectable} from 'inversify';
 import "reflect-metadata";
 import {Media} from '../model/media';
+import { config } from '../config/config';
 
 export interface SearchMultiResponse {
     page: number;
@@ -21,7 +22,7 @@ export class MovieService {
         private httpService: HttpService
     ) {
         this.defaultParams = {
-            api_key: "ad5e9449e5bc9b6477eff56483df4086",
+            api_key: config.apiKey,
         };
         this.baseUrl = 'https://api.themoviedb.org/3/search/multi';
     }

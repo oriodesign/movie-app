@@ -18,9 +18,13 @@
     "@types/jest": "^23.1.4",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
+    "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.3.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "ts-jest": "^23.0.0",
     "ts-loader": "^4.4.2",
     "typescript": "^2.9.2",
@@ -46,6 +50,9 @@
       "ts",
       "tsx",
       "js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/src/mock.js"
+    }
   }
 }

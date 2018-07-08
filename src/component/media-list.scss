@@ -1,0 +1,51 @@
+.media-item {
+    padding: 20px 0;
+    border-bottom: 1px solid grey;
+    color: white;
+    min-height: 330px;
+    position: relative;
+    p {
+        font-size: 0.8em;
+    }
+}
+
+.media-title {
+    font-size: 1.1em;
+    color: greenyellow;
+    margin-top: 0;
+}
+
+.media-type {
+    font-size: 1em;
+    color: yellow;
+}
+
+.media-date {
+    font-size: 0.9em;
+}
+
+.media-info {
+    color: gainsboro;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+}
+
+.info-box {
+    flex-grow: 1;
+}
+
+.image-wrapper {
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.info-wrapper {
+    padding-left: 220px;
+}

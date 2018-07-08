@@ -1,0 +1,3 @@
+export const config = {
+    apiKey: "insert_your_key"
+};

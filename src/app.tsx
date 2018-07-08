@@ -4,7 +4,11 @@ import {Store} from './store/store';
 import {Subscription} from 'rxjs';
 import {MediaList} from './component/media-list';
 import {AppState} from './store/app-state';
+import './app.scss';
+import {Loader} from './component/loader';
+
 export interface InterfaceAppProps { store: Store; }
+
 
 class App extends React.PureComponent<InterfaceAppProps, AppState> {
 
@@ -27,9 +31,12 @@ class App extends React.PureComponent<InterfaceAppProps, AppState> {
         }
 
         return (
-            <div>
+            <div className="container">
                 <h1>Movie App</h1>
-                <SearchBox store={this.props.store} />
+                <div className="search-box-wrapper">
+                    <SearchBox store={this.props.store} />
+                    {this.state.loading ? <div className="loader-wrapper"><Loader /></div> : null}
+                </div>
                 <MediaList pages={this.state.pages} media={this.state.media}/>
             </div>
         );

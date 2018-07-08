@@ -7,6 +7,7 @@ import {TvItem} from './tv-item';
 import {PersonItem} from './person-item';
 import {Media} from '../model/media';
 import {MediaResults, PageResults} from '../store/app-state';
+import './media-list.scss';
 
 export interface MediaListProperties { pages: PageResults, media: MediaResults }
 export interface MediaListState { }

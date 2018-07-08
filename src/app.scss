@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Monaco, monospace;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.search-box-wrapper {
+    position: relative;
+}
+
+h1 {
+    font-size: 1.1em;
+}
+
+.loader-wrapper {
+    position: absolute;
+    right: 13px;
+    top: 13px;
+}

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import App from "./App";
+import App from "./app";
 import {Container} from 'inversify';
 import {HttpService} from './service/http-service';
 import {MovieService} from './service/movie-service';
@@ -13,9 +13,7 @@ import {EffectsSubscriber} from './store/effects-subscriber';
 
 const container = new Container();
 container.bind<AxiosInstance>("Factory<AxiosInstance>").toFactory<AxiosInstance>(() => {
-    return () => axios.create({
-        baseURL: 'https://domain.com/foo/bar',
-    });
+    return () => axios.create();
 });
 container.bind<EffectsSubscriber>(EffectsSubscriber).to(EffectsSubscriber).inSingletonScope();
 container.bind<HttpService>(HttpService).to(HttpService).inSingletonScope();
