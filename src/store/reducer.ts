@@ -5,6 +5,10 @@ import {SearchMultiResponse} from '../service/movie-service';
 import {Media} from '../model/media';
 import {AppState} from './app-state';
 
+/**
+ * Reducer
+ * @TODO split it in different reducers
+ */
 @injectable()
 export class Reducer {
     public reduce = ([action, state]: [Action, AppState]): AppState => {

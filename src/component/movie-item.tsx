@@ -4,12 +4,15 @@ import {Movie} from '../model/movie';
 export interface MovieItemProperties { movie: Movie }
 export interface MovieItemState { }
 
+/**
+ * Movie Item Component
+ */
 export class MovieItem extends React.PureComponent<MovieItemProperties, MovieItemState> {
 
-    constructor(props: MovieItemProperties) {
-        super(props);
-    }
-
+    /**
+     *
+     * @returns {ReactNode}
+     */
     render () {
         const movie = this.props.movie;
         return (

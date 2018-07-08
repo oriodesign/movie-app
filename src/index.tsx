@@ -11,6 +11,11 @@ import "reflect-metadata";
 import axios, {AxiosInstance} from 'axios';
 import {EffectsSubscriber} from './store/effects-subscriber';
 
+/**
+ * Setup for DI
+ * @type {Container}
+ * @TODO extract it in a separate class
+ */
 const container = new Container();
 container.bind<AxiosInstance>("Factory<AxiosInstance>").toFactory<AxiosInstance>(() => {
     return () => axios.create();
@@ -26,6 +31,9 @@ const store = container.get(Store);
 const effectSubscriber = container.get(EffectsSubscriber);
 effectSubscriber.init();
 
+/**
+ * Entry point to render the react app
+ */
 ReactDOM.render(
     <App store={store} />,
     document.getElementById("app"),

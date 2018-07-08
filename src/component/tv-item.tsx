@@ -1,16 +1,19 @@
 import * as React from "react";
 import {Tv} from '../model/Tv';
+import {ReactNode} from 'react';
 
 export interface TvItemProperties { tv: Tv }
 export interface TvItemState { }
 
+/**
+ * TvItem Component
+ */
 export class TvItem extends React.PureComponent<TvItemProperties, TvItemState> {
 
-    constructor(props: TvItemProperties) {
-        super(props);
-    }
-
-    render () {
+    /**
+     * @returns {React.ReactNode}
+     */
+    render (): ReactNode {
 
         const tv = this.props.tv;
         return (

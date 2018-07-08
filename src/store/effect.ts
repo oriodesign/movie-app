@@ -12,6 +12,9 @@ interface Effect {
     create: (source$: Observable<Action>) => Observable<Action>;
 }
 
+/**
+ * Side Effects inspired by ngrx effects
+ */
 @injectable()
 export class MovieEffect implements Effect {
     constructor(
@@ -19,6 +22,11 @@ export class MovieEffect implements Effect {
     ) {
     }
 
+    /**
+     * Merge all side effects in one stream of events
+     * @param {Subject<Action>} source$
+     * @returns {Observable<Action>}
+     */
     public create = (source$: Subject<Action>): Observable<Action> => {
         return merge(
             this.onChangeQuery(source$),
@@ -26,6 +34,11 @@ export class MovieEffect implements Effect {
         );
     };
 
+    /**
+     * Start searching when the search box query changes
+     * @param {Observable<Action>} source$
+     * @returns {Observable<Action>}
+     */
     private onChangeQuery = (source$: Observable<Action>): Observable<Action> => {
         return source$.pipe(
             filter((a: Action) => a.type === ACTION_TYPE.CHANGE_QUERY),
@@ -35,6 +48,11 @@ export class MovieEffect implements Effect {
         );
     };
 
+    /**
+     * Make the request to the api and return a response event
+     * @param {Observable<Action>} source$
+     * @returns {Observable<Action>}
+     */
     private onSearchStart = (source$: Observable<Action>): Observable<Action> => {
         return source$.pipe(
             filter((a: Action) => a.type === ACTION_TYPE.SEARCH_START),

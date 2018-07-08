@@ -8,17 +8,21 @@ import {PersonItem} from './person-item';
 import {Media} from '../model/media';
 import {MediaResults, PageResults} from '../store/app-state';
 import './media-list.scss';
+import {ReactNode} from 'react';
 
 export interface MediaListProperties { pages: PageResults, media: MediaResults }
 export interface MediaListState { }
 
+/**
+ * Media List Component
+ * Display a list of movies, people and tv shows
+ */
 export class MediaList extends React.PureComponent<MediaListProperties, MediaListState> {
 
-    constructor(props: MediaListProperties) {
-        super(props);
-    }
-
-    render () {
+    /**
+     * @returns {ReactNode}
+     */
+    render (): ReactNode {
 
         const media = Object.keys(this.props.pages)
             .reduce((acc, pageId) => [

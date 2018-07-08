@@ -1,16 +1,19 @@
 import * as React from "react";
 import {Person} from '../model/Person';
+import {ReactNode} from 'react';
 
 export interface PersonItemProperties { person: Person }
 export interface PersonItemState { }
 
+/**
+ * PersonItem Component
+ */
 export class PersonItem extends React.PureComponent<PersonItemProperties, PersonItemState> {
 
-    constructor(props: PersonItemProperties) {
-        super(props);
-    }
-
-    render () {
+    /**
+     * @returns {ReactNode}
+     */
+    render (): ReactNode {
 
         const person = this.props.person;
         return (
