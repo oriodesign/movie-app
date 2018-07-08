@@ -29,6 +29,7 @@ export class MovieEffect implements Effect {
     private onChangeQuery = (source$: Observable<Action>): Observable<Action> => {
         return source$.pipe(
             filter((a: Action) => a.type === ACTION_TYPE.CHANGE_QUERY),
+            filter((a: Action) => a.payload.trim() !== ""),
             debounceTime(300),
             map((a: Action ) => new SearchStart(a.payload))
         );
@@ -37,6 +38,7 @@ export class MovieEffect implements Effect {
     private onSearchStart = (source$: Observable<Action>): Observable<Action> => {
         return source$.pipe(
             filter((a: Action) => a.type === ACTION_TYPE.SEARCH_START),
+            filter((a: Action) => a.payload.trim() !== ""),
             flatMap((a: Action) =>
                 this.movieService.searchMulti(a.payload)
                     .pipe(

@@ -1,4 +1,4 @@
-# Movie App
+# Movie App
 
 ## Getting started
 
@@ -18,14 +18,15 @@ Step 3. Install dependencies
 npm install
 ```
 
-Step 4. Run Test or Dev server
+Step 4. Run Test, Dev server or code coverage
 
 ```
 npm run test
 npm run start
+npm run coverage
 ```
 
-## What's missing
+## What's missing
 
 - Http Error handling 
 - e2e Tests with mocked api

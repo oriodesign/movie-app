@@ -34,7 +34,7 @@ class App extends React.PureComponent<InterfaceAppProps, AppState> {
             <div className="container">
                 <h1>Movie App</h1>
                 <div className="search-box-wrapper">
-                    <SearchBox store={this.props.store} />
+                    <SearchBox q={this.state.q} store={this.props.store} />
                     {this.state.loading ? <div className="loader-wrapper"><Loader /></div> : null}
                 </div>
                 <MediaList pages={this.state.pages} media={this.state.media}/>

@@ -45,9 +45,15 @@ describe('Reducer', () => {
         } as AppState);
     });
 
-    it('should return the same state by default', () => {
+    it('should stop loader on error', () => {
         const reducer = new Reducer();
         const result = reducer.reduce([new SearchError({}), {} as AppState]);
         expect(result).toEqual({loading: false});
+    });
+
+    it('should return the same state by default', () => {
+        const reducer = new Reducer();
+        const result = reducer.reduce([{type: "test", payload: ""}, {} as AppState]);
+        expect(result).toEqual({});
     });
 });

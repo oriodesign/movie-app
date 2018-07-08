@@ -8,7 +8,7 @@ describe('Search Box Test', () => {
         const storeMock = {
             dispatch: jest.fn(),
         } as any;
-        const wrapper = shallow(<SearchBox store={storeMock} />);
+        const wrapper = shallow(<SearchBox q="" store={storeMock} />);
 
         wrapper.find(".search-input").simulate("change", {
             target: {
