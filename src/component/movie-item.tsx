@@ -4,7 +4,7 @@ import {Movie} from '../model/movie';
 export interface MovieItemProperties { movie: Movie }
 export interface MovieItemState { }
 
-export class MovieItem extends React.Component<MovieItemProperties, MovieItemState> {
+export class MovieItem extends React.PureComponent<MovieItemProperties, MovieItemState> {
 
     constructor(props: MovieItemProperties) {
         super(props);

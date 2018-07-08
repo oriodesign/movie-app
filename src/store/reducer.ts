@@ -1,7 +1,9 @@
 import {Action, ACTION_TYPE} from './action';
-import {AppState} from './store';
 import {injectable} from 'inversify';
 import "reflect-metadata";
+import {SearchMultiResponse} from '../service/movie-service';
+import {Media} from '../model/media';
+import {AppState} from './app-state';
 
 @injectable()
 export class Reducer {
@@ -18,9 +20,26 @@ export class Reducer {
                     loading: true
                 };
             case ACTION_TYPE.SEARCH_END:
+
+                const response: SearchMultiResponse = action.payload;
+
                 return {
                     ...state,
-                    loading: false
+                    loading: false,
+                    currentPage: response.page,
+                    totalResults: response.total_results,
+                    totalPages: response.total_pages,
+                    media: {
+                        ...state.media,
+                        ...response.results.reduce((acc: {[id: string]: Media}, val: Media) =>  {
+                            acc[val.id] = val;
+                            return acc;
+                        }, {})
+                    },
+                    pages: {
+                        ...state.pages,
+                        [response.page]: response.results.map(r => r.id)
+                    }
                 };
             case ACTION_TYPE.SEARCH_ERROR:
                 return {

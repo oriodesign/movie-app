@@ -6,7 +6,7 @@ import {ChangeQueryAction} from '../store/action';
 export interface SearchBoxProperties { store: Store }
 export interface SearchBoxState { value: string; }
 
-export class SearchBox extends React.Component<SearchBoxProperties, SearchBoxState> {
+export class SearchBox extends React.PureComponent<SearchBoxProperties, SearchBoxState> {
 
     constructor(props: SearchBoxProperties) {
         super(props);

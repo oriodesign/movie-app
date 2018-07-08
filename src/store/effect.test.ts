@@ -2,8 +2,6 @@ import {MovieEffect} from './effect';
 import {Action, ACTION_TYPE, ChangeQueryAction, SearchStart} from './action';
 import {Subject} from 'rxjs/internal/Subject';
 import {of} from 'rxjs/internal/observable/of';
-import {Observable} from 'rxjs/internal/Observable';
-import any = jasmine.any;
 import {throwError} from 'rxjs/internal/observable/throwError';
 
 describe("Effect", () => {
@@ -21,7 +19,10 @@ describe("Effect", () => {
     });
 
     it("should dispatch a search end end on success", done => {
-        const mockResponse = {};
+        const mockData = {};
+        const mockResponse = {
+            data: mockData
+        };
         const serviceMock = {
             searchMulti: jest.fn().mockReturnValue(of(mockResponse))
         } as any;
@@ -30,7 +31,7 @@ describe("Effect", () => {
         const result$ = effect.create(source$);
         result$.subscribe((a: Action) => {
             expect(a.type).toEqual(ACTION_TYPE.SEARCH_END);
-            expect(a.payload).toEqual(mockResponse);
+            expect(a.payload).toEqual(mockData);
             done();
         });
         source$.next(new SearchStart("text"));

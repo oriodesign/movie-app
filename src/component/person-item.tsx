@@ -4,7 +4,7 @@ import {Person} from '../model/Person';
 export interface PersonItemProperties { person: Person }
 export interface PersonItemState { }
 
-export class PersonItem extends React.Component<PersonItemProperties, PersonItemState> {
+export class PersonItem extends React.PureComponent<PersonItemProperties, PersonItemState> {
 
     constructor(props: PersonItemProperties) {
         super(props);

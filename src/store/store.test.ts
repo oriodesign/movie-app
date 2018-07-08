@@ -1,5 +1,6 @@
 import {Action} from './action';
-import {AppState, Store} from './store';
+import {Store} from './store';
+import {AppState} from './app-state';
 
 describe('Store', () => {
     it('should dispatch events', () => {

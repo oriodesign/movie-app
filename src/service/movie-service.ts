@@ -2,15 +2,13 @@ import {HttpService} from './http-service';
 import { Observable } from 'rxjs';
 import {injectable} from 'inversify';
 import "reflect-metadata";
-import {Movie} from '../model/movie';
-import {Person} from '../model/person';
-import {Tv} from '../model/tv';
+import {Media} from '../model/media';
 
 export interface SearchMultiResponse {
     page: number;
     total_pages: number;
     total_results: number;
-    results: (Movie|Tv|Person)[];
+    results: Media[];
 }
 
 @injectable()

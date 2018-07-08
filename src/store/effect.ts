@@ -40,7 +40,7 @@ export class MovieEffect implements Effect {
             flatMap((a: Action) =>
                 this.movieService.searchMulti(a.payload)
                     .pipe(
-                        map((response: any) => new SearchEnd(response)),
+                        map((response: any) => new SearchEnd(response.data)),
                         catchError((e: any) => of(new SearchError(e))),
                     )
             )

@@ -4,7 +4,7 @@ import {Tv} from '../model/Tv';
 export interface TvItemProperties { tv: Tv }
 export interface TvItemState { }
 
-export class TvItem extends React.Component<TvItemProperties, TvItemState> {
+export class TvItem extends React.PureComponent<TvItemProperties, TvItemState> {
 
     constructor(props: TvItemProperties) {
         super(props);
